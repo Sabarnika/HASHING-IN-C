@@ -1,0 +1,43 @@
+// You are using GCC
+#include<stdio.h>
+int count(int win[],int k)
+{
+    int discount=0;
+    for(int i=0;i<k;i++)
+    {
+        int j;
+        for(j=0;j<i;j++)
+        {
+            if(win[i]==win[j])
+            {
+                break;
+            }
+        }
+        if(j==i)
+        {
+            discount++;
+        }
+    }
+    return discount;
+}
+void countD(int a[],int n,int k)
+{
+    for(int i=0;i<=n-k;i++)
+    {
+        printf("%d\n",count(a+i,k));
+    }
+}
+int main()
+{
+    int n,k;
+    scanf("%d",&n);
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d ",&a[i]);
+    }
+    scanf("%d",&k);
+    int n1=sizeof(a)/sizeof(a[0]);
+    countD(a,n1,k);
+    return 0;
+}
